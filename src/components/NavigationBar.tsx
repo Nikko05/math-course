@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image'
-import Button from './button'; // error with Button ?
+import Button from './Button';
 import Link from 'next/link';
 import NavLinks from './NavLinks';
 
