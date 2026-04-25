@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/globals.css';
-import NavigationBar from "../../components/NavigationBar";
-import Footer from "../../components/Footer";
+import NavigationBar from "@/components/NavigationBar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "MJakMAtematyka",
-  description: "Official website of MJakMatematyka",
+  description: "Official website of Math courses",
 };
 
 export default function RootLayout({
