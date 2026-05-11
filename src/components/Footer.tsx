@@ -5,25 +5,25 @@ function Footer() {
   return (
     <footer className='flex justify-center border-t border-stone-800 px-10'>
       <div className='w-2/10 flex py-5 justify-center items-center'>
-        <Image src="logo_basic.svg" alt="logo" className='h-35'/>
+        <Image src="logo_basic.svg" alt="logo" className='h-[35px] w-auto' width={35} height={35}/>
       </div>
       <div className='w-3/10 flex flex-col justify-center items-center'>
         <div>
           <div className='text-2xl'>Znajdziesz nas tutaj</div>
           <a className='flex py-0.5 cursor-pointer'>
-            <Image src="./facebook.svg" alt="facebook logo" className='pr-2'/>
+            <Image src="./facebook.svg" alt="facebook logo" className='pr-2' width={30} height={35}/>
             <div>
               Facebook
             </div>
           </a>
           <a className='flex py-0.5 cursor-pointer'>
-            <Image src="./instagram.svg" alt="instagram logo" className='pr-2'/>
+            <Image src="./instagram.svg" alt="instagram logo" className='pr-2' width={30} height={35}/>
             <div>
               Instagram
             </div>
           </a>
           <a className='flex py-0.5 cursor-pointer'>
-            <Image src="./tiktok.svg" alt="tiktok logo" className='pr-2'/>
+            <Image src="./tiktok.svg" alt="tiktok logo" className='pr-2' width={30} height={35}/>
             TikTok
           </a>
         </div>
