@@ -34,7 +34,7 @@ export default function Item({
   onDecrease,
 }: ItemProps) {
   return (
-    <div className='flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between'>
+    <div className='flex flex-col gap-4 rounded-3xl border border-slate-800 bg-neutral-900 p-4 shadow-sm md:flex-row md:items-center md:justify-between'>
       <div className='flex items-start gap-4'>
         <div className='h-20 w-20 overflow-hidden rounded-3xl bg-slate-100'>
           <Image src={image || '/logo_basic.svg'} alt={title} width={80} height={80} className='object-cover' />

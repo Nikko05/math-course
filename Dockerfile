@@ -9,7 +9,11 @@ COPY package.json package-lock.json* ./
 RUN npm install
 
 COPY . .
+ENV MONGODB_URI="mongodb://address-only-for-build"
+
 RUN npm run build
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]

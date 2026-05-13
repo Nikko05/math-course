@@ -48,7 +48,6 @@ export default async function NavigationBar() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '/courses', label: 'Courses' },
-    ...(isLoggedIn ? [{ href: '/tasks', label: 'Tasks' }] : []),
     { href: '/about-us', label: 'AboutUs' }
   ];
 
@@ -66,9 +65,9 @@ export default async function NavigationBar() {
             <Link href='/cart'>
               <Button btnData={btnBuy} />
             </Link>
-            <Link href='/api/logout'>
+            <a href='/api/logout'>
               <Button btnData={btnLogout} />
-            </Link>
+            </a>
           </>
         ) : (
           <>
