@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  backend:
+    build: .
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/mathapp
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+    command: sh -c "npm run seed && npm run start"
+    volumes:
+      - ./:/app:delegated
+      - /app/node_modules
+
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: mathapp
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
