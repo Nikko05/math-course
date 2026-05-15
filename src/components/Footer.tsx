@@ -28,49 +28,59 @@ function Footer() {
   }, []);
 
   return (
-    <footer className='flex flex-wrap justify-center border-t border-stone-800 px-10 py-8'>
-      <div className='w-full sm:w-1/5 flex py-5 justify-center items-center'>
-        <Image src='/logo_basic.svg' alt='logo' className='h-[35px] w-auto' width={35} height={35} />
-      </div>
-      <div className='w-full sm:w-2/5 flex flex-col justify-center items-center'>
-        <div>
-          <div className='text-2xl'>Znajdziesz nas tutaj</div>
-          <a className='flex py-0.5 cursor-pointer'>
-            <Image src='/facebook.svg' alt='facebook logo' className='pr-2' width={30} height={35} />
-            <div>Facebook</div>
-          </a>
-          <a className='flex py-0.5 cursor-pointer'>
-            <Image src='/instagram.svg' alt='instagram logo' className='pr-2' width={30} height={35} />
-            <div>Instagram</div>
-          </a>
-          <a className='flex py-0.5 cursor-pointer'>
-            <Image src='/tiktok.svg' alt='tiktok logo' className='pr-2' width={30} height={35} />
-            TikTok
-          </a>
+    <footer className='border-t border-stone-800 px-6 sm:px-10 py-12 flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 w-full max-w-7xl mx-auto'>
+      
+      {/* Counters Section */}
+      <div className='w-full lg:w-1/2 grid grid-cols-2 gap-8'>
+        <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
+          <div className='text-sm text-neutral-400'>Zaufało nam</div>
+          <div className='text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.users}+` : '...'}</div>
+          <div className='text-sm text-neutral-400'>użytkowników</div>
+        </div>
+        <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
+          <div className='text-sm text-neutral-400'>Dostępnych kursów</div>
+          <div className='text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.courses}` : '...'}</div>
+          <div className='text-sm text-neutral-400'>kursów</div>
+        </div>
+        <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
+          <div className='text-sm text-neutral-400'>Złożonych zamówień</div>
+          <div className='text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.orders}+` : '...'}</div>
+          <div className='text-sm text-neutral-400'>zamówień</div>
+        </div>
+        <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
+          <div className='text-sm text-neutral-400'>Aktywnych studentów</div>
+          <div className='text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.activeStudents}` : '...'}</div>
+          <div className='text-sm text-neutral-400'>studentów</div>
         </div>
       </div>
-      <div className='w-full sm:w-2/5 grid grid-cols-1 sm:grid-cols-2 gap-6'>
-        <div className='justify-around flex flex-col text-center'>
-          <div className='text-lg'>Zaufało nam</div>
-          <div className='text-5xl text-fuchsia-700'>{stats ? `${stats.users}+` : '...'}</div>
-          <div className='text-lg'>użytkowników</div>
+
+      {/* Logo and Socials Section */}
+      <div className='w-full lg:w-1/2 flex flex-row justify-between lg:justify-end gap-4 sm:gap-12'>
+        {/* Logo */}
+        <div className='w-1/2 lg:w-auto flex justify-center lg:justify-center items-center'>
+          <Image src='/logo_basic.svg' alt='logo' className='h-20 sm:h-24 w-auto drop-shadow-lg' width={96} height={96} />
         </div>
-        <div className='justify-around flex flex-col text-center'>
-          <div className='text-lg'>Dostępnych kursów</div>
-          <div className='text-5xl text-fuchsia-700'>{stats ? `${stats.courses}` : '...'}</div>
-          <div className='text-lg'>kursów</div>
-        </div>
-        <div className='justify-around flex flex-col text-center'>
-          <div className='text-lg'>Złożonych zamówień</div>
-          <div className='text-5xl text-fuchsia-700'>{stats ? `${stats.orders}+` : '...'}</div>
-          <div className='text-lg'>zamówień</div>
-        </div>
-        <div className='justify-around flex flex-col text-center'>
-          <div className='text-lg'>Aktywnych studentów</div>
-          <div className='text-5xl text-fuchsia-700'>{stats ? `${stats.activeStudents}` : '...'}</div>
-          <div className='text-lg'>studentów</div>
+
+        {/* Socials */}
+        <div className='w-1/2 lg:w-auto flex flex-col items-center lg:items-end'>
+          <div className='text-lg sm:text-xl mb-6 font-semibold text-center lg:text-right'>Znajdziesz nas tutaj</div>
+          <div className='flex flex-col gap-4'>
+            <a className='flex items-center gap-4 cursor-pointer hover:text-blue-500 transition-colors group'>
+              <Image src='/facebook.svg' alt='facebook logo' width={28} height={28} className='group-hover:scale-110 transition-transform' />
+              <span className='font-medium'>Facebook</span>
+            </a>
+            <a className='flex items-center gap-4 cursor-pointer hover:text-fuchsia-500 transition-colors group'>
+              <Image src='/instagram.svg' alt='instagram logo' width={28} height={28} className='group-hover:scale-110 transition-transform' />
+              <span className='font-medium'>Instagram</span>
+            </a>
+            <a className='flex items-center gap-4 cursor-pointer hover:text-white transition-colors group'>
+              <Image src='/tiktok.svg' alt='tiktok logo' width={28} height={28} className='group-hover:scale-110 transition-transform' />
+              <span className='font-medium'>TikTok</span>
+            </a>
+          </div>
         </div>
       </div>
+
     </footer>
   );
 }

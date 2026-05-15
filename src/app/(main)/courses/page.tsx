@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Select from '@/components/Select';
 import { addToCart, Course } from '@/lib/cart';
 
@@ -55,6 +56,8 @@ export default function Courses() {
   const [filterLevel, setFilterLevel] = useState('');
   const [filterSubject, setFilterSubject] = useState('');
   const [filterDifficulty, setFilterDifficulty] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchCourses() {
@@ -70,10 +73,25 @@ export default function Courses() {
       }
     }
 
+    async function checkAuth() {
+      try {
+        const response = await fetch('/api/auth');
+        const data = await response.json();
+        setIsLoggedIn(data.isLoggedIn);
+      } catch (error) {
+        console.error('Błąd sprawdzania autoryzacji:', error);
+      }
+    }
+
+    checkAuth();
     fetchCourses();
   }, []);
 
   const handleAddToCart = (course: Course) => {
+    if (!isLoggedIn) {
+      router.push('/login');
+      return;
+    }
     addToCart(course);
     setMessage(`Dodano kurs „${course.title}” do koszyka.`);
     setTimeout(() => setMessage(''), 2500);
