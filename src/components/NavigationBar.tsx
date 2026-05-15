@@ -8,7 +8,7 @@ import { cookies } from 'next/headers';
 const btnDark = {
   background: 'bg-blue-400', 
   color: 'text-slate-950', 
-  name: 'Login', 
+  name: 'Zaloguj', 
   type: 'text',
   paddingY: 'py-0.5',
   paddingX: 'px-2'
@@ -17,7 +17,7 @@ const btnDark = {
 const btnLight = {
   background: 'bg-transparent', 
   color: 'text-white', 
-  name: 'Register', 
+  name: 'Zarejestruj', 
   type: 'text',
   paddingY: 'py-0.5',
   paddingX: 'px-2'
@@ -35,7 +35,7 @@ const btnBuy = {
 const btnLogout = {
   background: 'bg-red-500', 
   color: 'text-white', 
-  name: 'Logout', 
+  name: 'Wyloguj', 
   type: 'text',
   paddingY: 'py-0.5',
   paddingX: 'px-2'
@@ -46,9 +46,9 @@ export default async function NavigationBar() {
   const isLoggedIn = cookieStore.has('user-session');
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/courses', label: 'Courses' },
-    { href: '/about-us', label: 'AboutUs' }
+    { href: '/', label: 'Główna' },
+    { href: '/courses', label: 'Kursy' },
+    { href: '/about-us', label: 'O nas' }
   ];
 
   return (

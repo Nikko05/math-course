@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const goToOffers = {
   background: 'bg-blue-400', 
@@ -16,11 +17,15 @@ export default function Home() {
     <div className="h-full w-full flex justify-center items-center">
       {/* left section */}
       <div className="w-1/2 h-full py-20">
-        <h1 className="text-5xl">Hello World</h1>
-        <div className="py-5 pr-20">
-          Aute fugiat ut esse commodo veniam ut qui esse officia laborum quis ipsum nostrud ex eiusmod tempor tempor deserunt duis excepteur et tempor amet reprehenderit mollit minim nisi quis reprehenderit irure consequat pariatur laborum ea ipsum commodo amet labore consequat consectetur sint sunt eu amet veniam et labore amet fugiat veniam dolore do ipsum ea aliquip id magna nisi et qui nulla consequat non.
+        <h1 className="text-5xl font-bold leading-tight">
+          Zrozum Matematykę <br /> <span className="text-blue-500">na Nowo</span>
+        </h1>
+        <div className="py-6 pr-20 text-lg text-neutral-600 dark:text-neutral-400">
+          Zapomnij o stresie przed sprawdzianami. Oferujemy interaktywne kursy, krok po kroku wyjaśniane zagadnienia oraz dostęp do doświadczonych korepetytorów. Niezależnie czy przygotowujesz się do matury, czy nadrabiasz zaległości – z nami matematyka staje się prosta i logiczna!
         </div>
-        <Button btnData={goToOffers}></Button>
+        <Link href="/courses">
+          <Button btnData={goToOffers}></Button>
+        </Link>
       </div>
       {/* right section */}
       <div className="w-1/2 p-5 h-full flex justify-center">
