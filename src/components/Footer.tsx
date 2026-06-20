@@ -38,17 +38,17 @@ function Footer() {
           <div className='text-xs sm:text-sm text-neutral-400'>użytkowników</div>
         </div>
         <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
-          <div className='text-xs sm:text-sm text-neutral-400'>Dostępnych kursów</div>
+          <div className='text-xs sm:text-sm text-neutral-400'>Dostępnych</div>
           <div className='text-2xl sm:text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.courses}` : '...'}</div>
           <div className='text-xs sm:text-sm text-neutral-400'>kursów</div>
         </div>
         <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
-          <div className='text-xs sm:text-sm text-neutral-400'>Złożonych zamówień</div>
+          <div className='text-xs sm:text-sm text-neutral-400'>Złożonych</div>
           <div className='text-2xl sm:text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.orders}` : '...'}</div>
           <div className='text-xs sm:text-sm text-neutral-400'>zamówień</div>
         </div>
         <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
-          <div className='text-xs sm:text-sm text-neutral-400'>Aktywnych studentów</div>
+          <div className='text-xs sm:text-sm text-neutral-400'>Aktywnych</div>
           <div className='text-2xl sm:text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.activeStudents}` : '...'}</div>
           <div className='text-xs sm:text-sm text-neutral-400'>studentów</div>
         </div>
