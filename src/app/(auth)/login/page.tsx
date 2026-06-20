@@ -38,7 +38,9 @@ export default function LoginPage() {
       setSuccess("Zalogowano pomyślnie. Przekierowuję...");
       setEmail("");
       setPassword("");
-      setTimeout(() => router.push("/"), 1200);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1200);
       return;
     }
 

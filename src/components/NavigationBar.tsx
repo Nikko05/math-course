@@ -8,19 +8,21 @@ import { cookies } from 'next/headers';
 const btnDark = {
   background: 'bg-blue-400', 
   color: 'text-slate-950', 
-  name: 'Login', 
+  name: 'Zaloguj', 
   type: 'text',
-  paddingY: 'py-0.5',
-  paddingX: 'px-2'
+  paddingY: 'py-1 sm:py-1.5',
+  paddingX: 'px-2 sm:px-4',
+  textClass: 'text-xs sm:text-sm font-semibold'
 };
 
 const btnLight = {
   background: 'bg-transparent', 
   color: 'text-white', 
-  name: 'Register', 
+  name: 'Zarejestruj', 
   type: 'text',
-  paddingY: 'py-0.5',
-  paddingX: 'px-2'
+  paddingY: 'py-1 sm:py-1.5',
+  paddingX: 'px-2 sm:px-4',
+  textClass: 'text-xs sm:text-sm font-semibold'
 };
 
 const btnBuy = {
@@ -28,17 +30,19 @@ const btnBuy = {
   color: 'text-white', 
   name: '🛒', 
   type: 'text',
-  paddingY: 'py-0.5',
-  paddingX: 'px-2'
+  paddingY: 'py-1 sm:py-1.5',
+  paddingX: 'px-2 sm:px-4',
+  textClass: 'text-xs sm:text-sm'
 };
 
 const btnLogout = {
   background: 'bg-red-500', 
   color: 'text-white', 
-  name: 'Logout', 
+  name: 'Wyloguj', 
   type: 'text',
-  paddingY: 'py-0.5',
-  paddingX: 'px-2'
+  paddingY: 'py-1 sm:py-1.5',
+  paddingX: 'px-2 sm:px-4',
+  textClass: 'text-xs sm:text-sm font-semibold'
 };
 
 export default async function NavigationBar() {
@@ -46,29 +50,30 @@ export default async function NavigationBar() {
   const isLoggedIn = cookieStore.has('user-session');
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/courses', label: 'Courses' },
-    ...(isLoggedIn ? [{ href: '/tasks', label: 'Tasks' }] : []),
-    { href: '/about-us', label: 'AboutUs' }
+    { href: '/', label: 'Główna' },
+    { href: '/courses', label: 'Kursy' },
+    { href: '/about-us', label: 'O nas' }
   ];
 
   return (
-    <nav className='flex justify-center items-center py-3.5 px-10 border-b border-stone-800'>
-      <div className='w-1/6'>
-        <Image src='/logo_basic.svg' alt="logo" className='h-10 w-auto' width={40} height={40}/>
+    <nav className='flex items-center justify-between py-2.5 px-4 lg:px-10 border-b border-stone-800 h-16'>
+      <div className='flex-shrink-0 flex items-center'>
+        <Image src='/logo_basic.svg' alt="logo" className='h-8 w-auto' width={32} height={32}/>
       </div>
       
-      <NavLinks hrefsToLink={{ hrefs: links }} />
+      <div className='flex-1 flex justify-center px-4 overflow-x-auto no-scrollbar'>
+        <NavLinks hrefsToLink={{ hrefs: links }} />
+      </div>
       
-      <div className='flex items-baseline w-1/3 justify-around'>
+      <div className='flex items-center justify-end gap-2 flex-shrink-0'>
         {isLoggedIn ? (
           <>
             <Link href='/cart'>
               <Button btnData={btnBuy} />
             </Link>
-            <Link href='/api/logout'>
+            <a href='/api/logout'>
               <Button btnData={btnLogout} />
-            </Link>
+            </a>
           </>
         ) : (
           <>

@@ -13,8 +13,8 @@ export default function LinksForNav({hrefsToLink: { hrefs }}: HrefsProps ) {
   const pathname = usePathname();
 
   return (
-    <div className='flex items-baseline w-1/2 pr-15 justify-around'>       
-      {hrefs.map(({href, label}) => <Link key={label} href={`${href}`} className={`capitalize ${pathname == href ? 'underline underline-offset-4 font-bold' : ''}`}>{label}</Link>)}
+    <div className='flex items-center gap-4 sm:gap-8 justify-center whitespace-nowrap text-sm sm:text-base'>       
+      {hrefs.map(({href, label}) => <Link key={label} href={`${href}`} className={`capitalize hover:text-blue-500 transition-colors ${pathname == href ? 'underline underline-offset-4 font-bold text-blue-600' : ''}`}>{label}</Link>)}
     </div>
   );
 };

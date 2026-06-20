@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { hash } from "bcrypt";
-import { db } from "@/lib/mangodb";
+import { getDb } from "@/lib/mongodb";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -15,6 +15,7 @@ export async function POST(request: Request) {
   }
 
   const normalizedEmail = email.trim().toLowerCase();
+  const db = await getDb();
   const existingUser = await db.collection("users").findOne({ email: normalizedEmail });
 
   if (existingUser) {

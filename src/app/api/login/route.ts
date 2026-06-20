@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { compare } from "bcrypt";
-import { db } from "@/lib/mongodb";
+import { getDb } from "@/lib/mongodb";
 import { cookies } from "next/headers";
 
 export async function POST(request: Request) {
@@ -15,6 +15,7 @@ export async function POST(request: Request) {
   }
 
   const normalizedEmail = email.trim().toLowerCase();
+  const db = await getDb();
   const user = await db.collection("users").findOne({ email: normalizedEmail });
 
   if (!user || !user.passwordHash) {
