@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { MongoClient } from "mongodb";
-
-const uri = process.env.MONGODB_URI!;
-
-const client = new MongoClient(uri);
-
-export const db = client.db("mathapp");
-=======
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
@@ -37,4 +28,3 @@ export async function getDb() {
   const client = await connectClient();
   return client.db('mathapp');
 }
->>>>>>> test

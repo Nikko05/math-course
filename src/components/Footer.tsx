@@ -53,7 +53,7 @@ function Footer() {
       <div className='w-full lg:w-1/2 flex flex-row justify-between lg:justify-end gap-4 sm:gap-12'>
         {/* Logo */}
         <div className='w-1/2 lg:w-auto flex justify-center lg:justify-center items-center'>
-          <Image src='/logo_basic.svg' alt='logo' className='h-12 sm:h-16 w-auto drop-shadow-lg' width={64} height={64} />
+          <Image src='/logo_basic.svg' alt='logo' className='h-12 sm:h-16 w-auto drop-shadow-lg' width={64} height={64} style={{ width: 'auto', height: 'auto' }} />
         </div>
 
         {/* Socials */}
@@ -61,15 +61,15 @@ function Footer() {
           <div className='text-sm sm:text-base mb-3 font-semibold text-center lg:text-right'>Znajdziesz nas tutaj</div>
           <div className='flex flex-col gap-2 sm:gap-3'>
             <a className='flex items-center gap-2 sm:gap-3 cursor-pointer hover:text-blue-500 transition-colors group'>
-              <Image src='/facebook.svg' alt='facebook logo' width={20} height={20} className='w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform' />
+              <Image src='/facebook.svg' alt='facebook logo' width={20} height={20} className='w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform' style={{ width: 'auto', height: 'auto' }} />
               <span className='text-xs sm:text-sm font-medium'>Facebook</span>
             </a>
             <a className='flex items-center gap-2 sm:gap-3 cursor-pointer hover:text-fuchsia-500 transition-colors group'>
-              <Image src='/instagram.svg' alt='instagram logo' width={20} height={20} className='w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform' />
+              <Image src='/instagram.svg' alt='instagram logo' width={20} height={20} className='w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform' style={{ width: 'auto', height: 'auto' }} />
               <span className='text-xs sm:text-sm font-medium'>Instagram</span>
             </a>
             <a className='flex items-center gap-2 sm:gap-3 cursor-pointer hover:text-white transition-colors group'>
-              <Image src='/tiktok.svg' alt='tiktok logo' width={20} height={20} className='w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform' />
+              <Image src='/tiktok.svg' alt='tiktok logo' width={20} height={20} className='w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform' style={{ width: 'auto', height: 'auto' }} />
               <span className='text-xs sm:text-sm font-medium'>TikTok</span>
             </a>
           </div>

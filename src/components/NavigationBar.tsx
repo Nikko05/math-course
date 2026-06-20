@@ -58,7 +58,7 @@ export default async function NavigationBar() {
   return (
     <nav className='flex items-center justify-between py-2.5 px-4 lg:px-10 border-b border-stone-800 h-16'>
       <div className='flex-shrink-0 flex items-center'>
-        <Image src='/logo_basic.svg' alt="logo" className='h-8 w-auto' width={32} height={32}/>
+        <Image src='/logo_basic.svg' alt="logo" className='h-8 w-auto' width={32} height={32} style={{ width: 'auto', height: 'auto' }}/>
       </div>
       
       <div className='flex-1 flex justify-center px-4 overflow-x-auto no-scrollbar'>
