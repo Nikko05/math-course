@@ -15,9 +15,9 @@ const goToOffers = {
 
 export default function Home() {
   return (
-    <div className="min-h-[calc(100vh-64px)] w-full flex flex-col lg:flex-row justify-center items-center px-6 lg:px-16 py-10 gap-10">
+    <div className="py-5 w-full flex flex-col lg:flex-row justify-center items-center px-6 lg:px-16 gap-10 ">
       {/* left section */}
-      <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left py-10 lg:py-20">
+      <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
           Zrozum Matematykę <br /> <span className="text-blue-500">na Nowo</span>
         </h1>
