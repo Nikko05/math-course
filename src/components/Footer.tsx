@@ -31,7 +31,7 @@ function Footer() {
     <footer className='border-t border-stone-800 px-6 sm:px-10 py-6 sm:py-8 flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 sm:gap-8 w-full max-w-7xl mx-auto'>
       
       {/* Counters Section */}
-      <div className='w-full lg:w-1/2 grid grid-cols-3 gap-2 sm:gap-8'>
+      <div className='w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6'>
         <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
           <div className='text-xs sm:text-sm text-neutral-400'>Zaufało nam</div>
           <div className='text-2xl sm:text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.users}+` : '...'}</div>
@@ -41,6 +41,11 @@ function Footer() {
           <div className='text-xs sm:text-sm text-neutral-400'>Dostępnych kursów</div>
           <div className='text-2xl sm:text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.courses}` : '...'}</div>
           <div className='text-xs sm:text-sm text-neutral-400'>kursów</div>
+        </div>
+        <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
+          <div className='text-xs sm:text-sm text-neutral-400'>Złożonych zamówień</div>
+          <div className='text-2xl sm:text-4xl font-bold text-fuchsia-700'>{stats ? `${stats.orders}` : '...'}</div>
+          <div className='text-xs sm:text-sm text-neutral-400'>zamówień</div>
         </div>
         <div className='flex flex-col items-center lg:items-start text-center lg:text-left'>
           <div className='text-xs sm:text-sm text-neutral-400'>Aktywnych studentów</div>
