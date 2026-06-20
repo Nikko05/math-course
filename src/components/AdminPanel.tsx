@@ -116,15 +116,15 @@ export default function AdminPanel({ adminName }: Props) {
   }
 
   return (
-    <div className="w-full min-h-screen bg-slate-50 p-6 text-slate-900">
+    <div className="w-full min-h-screen bg-transparent p-6 text-neutral-900 dark:text-neutral-100">
       <div className="mx-auto max-w-6xl space-y-6">
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-sm">
           <h1 className="text-3xl font-semibold">Panel administratora</h1>
-          <p className="mt-2 text-sm text-slate-600">Witaj, {adminName}. Możesz dodawać kursy oraz usuwać użytkowników.</p>
+          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">Witaj, {adminName}. Możesz dodawać kursy oraz usuwać użytkowników.</p>
         </div>
 
         <div className="grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
-          <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Dodaj nowy kurs</h2>
             <form className="space-y-4" onSubmit={createCourse}>
               <div className="grid gap-4 sm:grid-cols-2">
@@ -133,7 +133,7 @@ export default function AdminPanel({ adminName }: Props) {
                   <input
                     value={courseForm.title}
                     onChange={(e) => setCourseForm({ ...courseForm, title: e.target.value })}
-                    className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                    className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-2 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </label>
@@ -142,7 +142,7 @@ export default function AdminPanel({ adminName }: Props) {
                   <input
                     value={courseForm.category}
                     onChange={(e) => setCourseForm({ ...courseForm, category: e.target.value })}
-                    className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                    className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-2 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </label>
@@ -154,7 +154,7 @@ export default function AdminPanel({ adminName }: Props) {
                   <input
                     value={courseForm.level}
                     onChange={(e) => setCourseForm({ ...courseForm, level: e.target.value })}
-                    className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                    className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-2 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </label>
@@ -165,7 +165,7 @@ export default function AdminPanel({ adminName }: Props) {
                     min="0"
                     value={courseForm.price}
                     onChange={(e) => setCourseForm({ ...courseForm, price: Number(e.target.value) })}
-                    className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                    className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-2 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </label>
@@ -176,7 +176,7 @@ export default function AdminPanel({ adminName }: Props) {
                 <textarea
                   value={courseForm.description}
                   onChange={(e) => setCourseForm({ ...courseForm, description: e.target.value })}
-                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                  className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-2 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   rows={4}
                   required
                 />
@@ -187,7 +187,7 @@ export default function AdminPanel({ adminName }: Props) {
                 <input
                   value={courseForm.image}
                   onChange={(e) => setCourseForm({ ...courseForm, image: e.target.value })}
-                  className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                  className="mt-1 w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-2 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="/logo_basic.svg"
                   required
                 />
@@ -195,29 +195,29 @@ export default function AdminPanel({ adminName }: Props) {
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <Button btnData={{ background: 'bg-blue-600', color: 'text-white', name: loading ? 'Tworzenie...' : 'Utwórz kurs', type: 'text', paddingY: 'py-3', paddingX: 'px-6', textClass: 'font-semibold' }} />
-                {message && <p className="text-sm text-green-600">{message}</p>}
-                {error && <p className="text-sm text-red-600">{error}</p>}
+                {message && <p className="text-sm text-green-600 dark:text-green-400">{message}</p>}
+                {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
               </div>
             </form>
           </section>
 
-          <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <section className="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Użytkownicy</h2>
             {users.length === 0 ? (
-              <p className="text-sm text-slate-500">Brak zarejestrowanych użytkowników.</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">Brak zarejestrowanych użytkowników.</p>
             ) : (
               <div className="space-y-3">
                 {users.map((user) => (
-                  <div key={user._id} className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <div key={user._id} className="flex items-center justify-between gap-3 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 px-4 py-3">
                     <div>
                       <div className="font-medium">{user.name}</div>
-                      <div className="text-sm text-slate-600">{user.email}</div>
-                      {user.isAdmin && <div className="mt-1 text-xs text-blue-600">Administrator</div>}
+                      <div className="text-sm text-neutral-600 dark:text-neutral-400">{user.email}</div>
+                      {user.isAdmin && <div className="mt-1 text-xs text-blue-600 dark:text-blue-400 font-semibold">Administrator</div>}
                     </div>
                     <button
                       type="button"
                       onClick={() => deleteUser(user._id)}
-                      className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
+                      className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
                     >
                       Usuń
                     </button>
@@ -228,26 +228,26 @@ export default function AdminPanel({ adminName }: Props) {
           </section>
         </div>
 
-        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-sm">
           <h2 className="text-2xl font-semibold mb-4">Kursy</h2>
           {courses.length === 0 ? (
-            <p className="text-sm text-slate-500">Brak kursów w bazie.</p>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">Brak kursów w bazie.</p>
           ) : (
             <div className="space-y-4">
               {courses.map((course) => (
-                <div key={course._id} className="rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm">
+                <div key={course._id} className="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 p-4 shadow-sm">
                   <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                     <div>
                       <div className="text-lg font-semibold">{course.title}</div>
-                      <div className="text-sm text-slate-600">{course.category} • {course.level}</div>
-                      <div className="mt-2 text-sm text-slate-700">{course.description}</div>
+                      <div className="text-sm text-neutral-600 dark:text-neutral-400">{course.category} • {course.level}</div>
+                      <div className="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{course.description}</div>
                     </div>
                     <div className="flex flex-col gap-3 items-start md:items-end">
-                      <span className="text-xl font-bold text-slate-900">{course.price} PLN</span>
+                      <span className="text-xl font-bold text-neutral-900 dark:text-neutral-100">{course.price} PLN</span>
                       <button
                         type="button"
                         onClick={() => deleteCourse(course._id)}
-                        className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
+                        className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
                       >
                         Usuń kurs
                       </button>

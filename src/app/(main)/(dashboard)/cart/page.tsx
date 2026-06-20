@@ -17,12 +17,9 @@ const btnCheckout = {
 
 export default function Cart() {
   const [items, setItems] = useState<CartItem[]>([]);
-<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-=======
->>>>>>> cms
 
   useEffect(() => {
     const current = loadCart();
@@ -46,8 +43,6 @@ export default function Cart() {
     if (amount < 1) return;
     syncCart(updateCartQuantity(id, amount));
   };
-
-<<<<<<< HEAD
   const handleCheckout = async () => {
     const selectedItems = items.filter(item => item.selected);
     if (selectedItems.length === 0) return;
@@ -87,8 +82,6 @@ export default function Cart() {
     }
   };
 
-=======
->>>>>>> cms
   const totalSelectedPrice = items
     .filter(item => item.selected)
     .reduce((sum, current) => sum + current.item.price * current.amount, 0);
@@ -117,7 +110,6 @@ export default function Cart() {
       <div className='w-full lg:w-5/12 xl:w-4/12'>
         <div className='border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 rounded-3xl p-8 shadow-lg flex flex-col gap-6 sticky top-24'>
           <h3 className='text-2xl font-bold'>Podsumowanie</h3>
-<<<<<<< HEAD
           
           {message && (
             <div className={`rounded-2xl px-4 py-3 text-sm font-medium border ${
@@ -129,24 +121,6 @@ export default function Cart() {
             </div>
           )}
 
-=======
->>>>>>> cms
-          <div className='flex flex-col gap-3 text-lg'>
-            <div className='flex justify-between'>
-              <span className='text-neutral-500 dark:text-neutral-400'>Wartość produktów:</span>
-              <span className='font-medium'>{totalSelectedPrice} PLN</span>
-            </div>
-            <div className='flex justify-between'>
-              <span className='text-neutral-500 dark:text-neutral-400'>Zniżka:</span>
-              <span className='font-medium text-green-600 dark:text-green-400'>-0 PLN</span>
-            </div>
-          </div>
-          <div className='border-t border-neutral-200 dark:border-neutral-800 pt-4 mt-2'>
-            <div className='flex justify-between items-center mb-6'>
-              <span className='text-xl font-bold'>Do zapłaty:</span>
-              <span className='text-3xl font-bold text-blue-600 dark:text-blue-400'>{totalSelectedPrice} PLN</span>
-            </div>
-<<<<<<< HEAD
             <Button 
               btnData={{ 
                 ...btnCheckout, 
@@ -155,9 +129,6 @@ export default function Cart() {
               }} 
               onClick={handleCheckout}
             />
-=======
-            <Button btnData={{ ...btnCheckout, background: totalSelectedPrice === 0 ? 'bg-neutral-400' : 'bg-blue-600' }} />
->>>>>>> cms
           </div>
 
           <div className='text-sm text-center text-neutral-500 dark:text-neutral-400 mt-4'>
@@ -165,6 +136,5 @@ export default function Cart() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

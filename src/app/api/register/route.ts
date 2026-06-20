@@ -15,13 +15,9 @@ export async function POST(request: Request) {
   }
 
   const normalizedEmail = email.trim().toLowerCase();
-<<<<<<< HEAD
-=======
   if (normalizedEmail === 'admin') {
     return NextResponse.json({ message: 'Rejestracja loginu admin jest niedozwolona.' }, { status: 403 });
   }
-
->>>>>>> cms
   const db = await getDb();
   const existingUser = await db.collection("users").findOne({ email: normalizedEmail });
 
@@ -35,10 +31,7 @@ export async function POST(request: Request) {
     name: name.trim(),
     email: normalizedEmail,
     passwordHash,
-<<<<<<< HEAD
-=======
     isAdmin: false,
->>>>>>> cms
     createdAt: new Date(),
   });
 

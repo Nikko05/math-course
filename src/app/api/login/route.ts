@@ -5,20 +5,6 @@ import { cookies } from "next/headers";
 
 export async function POST(request: Request) {
   const body = await request.json();
-<<<<<<< HEAD
-  const { email, password } = body as {
-    email?: string;
-    password?: string;
-  };
-
-  if (!email || !password) {
-    return NextResponse.json({ message: "Email i hasło są wymagane." }, { status: 400 });
-  }
-
-  const normalizedEmail = email.trim().toLowerCase();
-  const db = await getDb();
-  const user = await db.collection("users").findOne({ email: normalizedEmail });
-=======
   const { login, password } = body as {
     login?: string;
     password?: string;
@@ -31,7 +17,6 @@ export async function POST(request: Request) {
   const normalizedLogin = login.trim().toLowerCase();
   const db = await getDb();
   const user = await db.collection("users").findOne({ email: normalizedLogin });
->>>>>>> cms
 
   if (!user || !user.passwordHash) {
     return NextResponse.json({ message: "Niepoprawny email lub hasło." }, { status: 401 });

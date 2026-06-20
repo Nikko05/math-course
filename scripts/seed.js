@@ -1,10 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { MongoClient } = require('mongodb');
-<<<<<<< HEAD
-=======
 const { hash } = require('bcrypt');
->>>>>>> cms
 
 const envPath = path.resolve(__dirname, '..', '.env');
 if (fs.existsSync(envPath)) {
@@ -191,9 +188,6 @@ async function seed() {
   try {
     await connectWithRetry();
     const db = client.db();
-<<<<<<< HEAD
-=======
-
     const userCollection = db.collection('users');
     const adminUser = await userCollection.findOne({ email: 'admin' });
 
@@ -206,23 +200,21 @@ async function seed() {
         isAdmin: true,
         createdAt: new Date(),
       });
-      console.log('✅ Konto administratora utworzone: admin / admin');
+      console.log('Konto administratora utworzone: admin / admin');
     } else if (!adminUser.isAdmin) {
       await userCollection.updateOne({ _id: adminUser._id }, { $set: { isAdmin: true } });
-      console.log('ℹ️ Konto admina zaktualizowane do roli administratora.');
+      console.log('Konto admina zaktualizowane do roli administratora.');
     } else {
-      console.log('ℹ️ Konto administratora już istnieje.');
+      console.log('Konto administratora już istnieje.');
     }
-
->>>>>>> cms
     const courseCollection = db.collection('courses');
     const existing = await courseCollection.countDocuments();
 
     if (existing === 0) {
       await courseCollection.insertMany(courses);
-      console.log('✅ Seed danych kursów dodany do bazy.');
+      console.log('Seed danych kursów dodany do bazy.');
     } else {
-      console.log('ℹ️ Kursy już istnieją w bazie; nie wstawiono duplikatów.');
+      console.log('Kursy już istnieją w bazie; nie wstawiono duplikatów.');
     }
   } catch (error) {
     console.error('Błąd seedowania bazy danych:', error);
