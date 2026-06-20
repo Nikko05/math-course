@@ -24,7 +24,12 @@ export default function Home() {
       </div>
       {/* right section */}
       <div className="w-1/2 p-5 h-full flex justify-center">
-        <Image src="./homeAnimation.svg" alt="home animation image" />
+                <Image
+                src="/homeAnimation.svg"
+                alt="home animation image"
+                width={500}
+                height={500}
+              />
       </div>
     </div>
   );
