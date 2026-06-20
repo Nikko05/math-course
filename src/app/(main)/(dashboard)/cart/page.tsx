@@ -17,6 +17,9 @@ const btnCheckout = {
 
 export default function Cart() {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     const current = loadCart();
@@ -39,6 +42,45 @@ export default function Cart() {
   const handleQuantityChange = (id: string, amount: number) => {
     if (amount < 1) return;
     syncCart(updateCartQuantity(id, amount));
+  };
+
+  const handleCheckout = async () => {
+    const selectedItems = items.filter(item => item.selected);
+    if (selectedItems.length === 0) return;
+
+    setLoading(true);
+    setMessage('');
+    setIsSuccess(false);
+
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: selectedItems,
+          totalPrice: totalSelectedPrice,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setMessage('Dziękujemy! Twoje zamówienie zostało złożone pomyślnie.');
+        
+        // Remove only selected items from the cart
+        const remainingItems = items.filter(item => !item.selected);
+        syncCart(remainingItems);
+      } else {
+        setMessage(data.message || 'Wystąpił błąd podczas składania zamówienia.');
+      }
+    } catch (err) {
+      setMessage('Błąd połączenia z serwerem. Spróbuj ponownie.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const totalSelectedPrice = items
@@ -69,6 +111,17 @@ export default function Cart() {
       <div className='w-full lg:w-5/12 xl:w-4/12'>
         <div className='border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 rounded-3xl p-8 shadow-lg flex flex-col gap-6 sticky top-24'>
           <h3 className='text-2xl font-bold'>Podsumowanie</h3>
+          
+          {message && (
+            <div className={`rounded-2xl px-4 py-3 text-sm font-medium border ${
+              isSuccess 
+                ? 'bg-green-100 text-green-800 border-green-200 dark:bg-green-950/30 dark:text-green-400 dark:border-green-900' 
+                : 'bg-red-100 text-red-800 border-red-200 dark:bg-red-950/30 dark:text-red-400 dark:border-red-900'
+            }`}>
+              {message}
+            </div>
+          )}
+
           <div className='flex flex-col gap-3 text-lg'>
             <div className='flex justify-between'>
               <span className='text-neutral-500 dark:text-neutral-400'>Wartość produktów:</span>
@@ -84,7 +137,14 @@ export default function Cart() {
               <span className='text-xl font-bold'>Do zapłaty:</span>
               <span className='text-3xl font-bold text-blue-600 dark:text-blue-400'>{totalSelectedPrice} PLN</span>
             </div>
-            <Button btnData={{ ...btnCheckout, background: totalSelectedPrice === 0 ? 'bg-neutral-400' : 'bg-blue-600' }} />
+            <Button 
+              btnData={{ 
+                ...btnCheckout, 
+                name: loading ? 'Przetwarzanie...' : 'Przejdź do kasy',
+                background: (totalSelectedPrice === 0 || loading) ? 'bg-neutral-400 dark:bg-neutral-800 pointer-events-none' : 'bg-blue-600' 
+              }} 
+              onClick={handleCheckout}
+            />
           </div>
 
           <div className='text-sm text-center text-neutral-500 dark:text-neutral-400 mt-4'>
