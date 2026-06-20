@@ -3,7 +3,11 @@ import Image from 'next/image';
 import Button from './Button';
 import Link from 'next/link';
 import NavLinks from './NavLinks';
+<<<<<<< HEAD
 import { cookies } from 'next/headers';
+=======
+import { getCurrentUser } from '@/lib/auth';
+>>>>>>> cms
 
 const btnDark = {
   background: 'bg-blue-400', 
@@ -46,8 +50,14 @@ const btnLogout = {
 };
 
 export default async function NavigationBar() {
+<<<<<<< HEAD
   const cookieStore = await cookies();
   const isLoggedIn = cookieStore.has('user-session');
+=======
+  const currentUser = await getCurrentUser();
+  const isLoggedIn = !!currentUser;
+  const isAdmin = currentUser?.isAdmin === true;
+>>>>>>> cms
 
   const links = [
     { href: '/', label: 'Główna' },
@@ -55,10 +65,21 @@ export default async function NavigationBar() {
     { href: '/about-us', label: 'O nas' }
   ];
 
+<<<<<<< HEAD
   return (
     <nav className='flex items-center justify-between py-2.5 px-4 lg:px-10 border-b border-stone-800 h-16'>
       <div className='flex-shrink-0 flex items-center'>
         <Image src='/logo_basic.svg' alt="logo" className='h-8 w-auto' width={32} height={32} style={{ width: 'auto', height: 'auto' }}/>
+=======
+  if (isAdmin) {
+    links.push({ href: '/admin', label: 'Admin' });
+  }
+
+  return (
+    <nav className='flex items-center justify-between py-2.5 px-4 lg:px-10 border-b border-stone-800 h-16'>
+      <div className='flex-shrink-0 flex items-center'>
+        <Image src='/logo_basic.svg' alt="logo" className='h-8 w-auto' width={32} height={32}/>
+>>>>>>> cms
       </div>
       
       <div className='flex-1 flex justify-center px-4 overflow-x-auto no-scrollbar'>

@@ -27,4 +27,9 @@ async function connectClient() {
 export async function getDb() {
   const client = await connectClient();
   return client.db('mathapp');
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> cms
